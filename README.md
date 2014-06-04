@@ -43,34 +43,49 @@ Configure your InfluxDB
 -----------------------
 `tutum/grafana` need to know the information of your InfluxDB for configuration. Please provide the following environment variables when running the containers:
 ```
-INFLUXDB_1_PORT_8086_TCP_ADDR       Address of your InfluxDB (do not use prefix such as http://)
-INFLUXDB_1_PORT_8086_TCP_PORT       Port number of your InfluxDB (8086 or the port mapping 8086)
-INFLUXDB_DB_NAME                    Database name of your InfluxDB
-INFLUXDB_USER=root                  Username of your InfluxDB
-INFLUXDB_PASS=root                  Password of your InfluxDB
+INFLUXDB_1_PORT_8086_TCP_ADDR           Address of your InfluxDB (do not use prefix such as http://)
+INFLUXDB_1_PORT_8086_TCP_PORT           Port number of your InfluxDB (8086 or the port mapping 8086)
+INFLUXDB_DB_NAME                        Database name of your InfluxDB
+INFLUXDB_USER=root                      Username of your InfluxDB
+INFLUXDB_PASS=root                      Password of your InfluxDB
 ```
 Here is an example:
 
-    docker run -ti -p 80:80 -e INFLUXDB_1_PORT_8086_TCP_ADDR='influxdb-1-tifayuki.delta.tutum.io' -e INFLUXDB_1_PORT_8086_TCP_PORT='8086' -e INFLUXDB_DB_NAME=testdb -e INFLUXDB_USER=root -e INFLUXDB_PASS=root -e HTTP_PASS=admin tutum/grafana
+    docker run -d -p 80:80 -e INFLUXDB_1_PORT_8086_TCP_ADDR='influxdb-1-tifayuki.delta.tutum.io' -e INFLUXDB_1_PORT_8086_TCP_PORT='8086' -e INFLUXDB_DB_NAME=testdb -e INFLUXDB_USER=root -e INFLUXDB_PASS=root -e HTTP_PASS=admin tutum/grafana
     
 
-Link to you InfluxDB
---------------------
-You can also link `tutum/grafana` to your InfluxDB container directly by giving your InfluxDB an alais `INFLUXDB`. In this case, you don't need to specify `INFLUXDB_1_PORT_8086_TCP_ADDR` and `INFLUXDB_1_PORT_8086_TCP_PORT`.
+Link to you InfluxDB container
+-----------------------------
+You can also link `tutum/grafana` to your InfluxDB container directly by giving your InfluxDB container an alais of `INFLUXDB`. In this case, you don't need to specify `INFLUXDB_1_PORT_8086_TCP_ADDR` and `INFLUXDB_1_PORT_8086_TCP_PORT`.
+
+For more information about InfluxDB containers, please see `tutum/influxdb` and https://github.com/tutumcloud/tutum-docker-influxdb
 
 Here is an example:
 
-        docker run -ti -p 80:80 --link yourinflux:INFLUXDB -e INFLUXDB_DB_NAME=testdb -e INFLUXDB_USER=root -e INFLUXDB_PASS=root tutum/grafana
-    
+    docker run -d -p 80:80 --link yourinflux:INFLUXDB -e INFLUXDB_DB_NAME=testdb -e INFLUXDB_USER=root -e INFLUXDB_PASS=root tutum/grafana
+
+Configure Elasticsearch to save and load dashboards
+---------------------------------------------------
+If you want you use Elasticsearch to save and load you dashboards, you can provide the following environment variables for configuration:
+```
+ELASTICSEARCH_1_PORT_9200_TCP_ADDR      Address of your Elasticsearch (do not use prefix such as http://)
+ELASTICSEARCH_1_PORT_9200_TCP_PORT      Port number of your Elasticsearch (9200 or the port mapping 9200)
+```
+
+Here is an example:
+
+    docker run -d -p 80:80 -e INFLUXDB_1_PORT_8086_TCP_ADDR='influxdb-1-tifayuki.delta.tutum.io' -e INFLUXDB_1_PORT_8086_TCP_PORT='8086' -e INFLUXDB_DB_NAME=test -e INFLUXDB_USER=root -e INFLUXDB_PASS=root -e HTTP_PASS=admin -e ELASTICSEARCH_1_PORT_9200_TCP_ADDR=elasticsearch-1-tifayuki.beta.tutum.io -e ELASTICSEARCH_1_PORT_9200_TCP_PORT=9200 tutum/grafana
+
+Link to your Elasticsearch container
+------------------------------------
+Similar linking to InfluxDB containers, you can also link your Elasticsearch container to `tutum/grafana` by giving an alias of `ELASTICSEARCH`.
+
+For more information about Elasticsearch containers, please see `tutum/elasticsearch` and https://github.com/tutumcloud/tutum-docker-elasticsearch 
+
+Here is an example:
+
+    docker run -d -p 80:80 --link yourinflux:INFLUXDB --link yourElasticsearch:ELASTICSEARCH -e INFLUXDB_DB_NAME=testdb -e INFLUXDB_USER=root -e INFLUXDB_PASS=root tutum/grafana
+
 Done!
 
 **by http://www.tutum.co**
-
-
-
-
-
-
-
-
-
