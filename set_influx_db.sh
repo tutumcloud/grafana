@@ -40,5 +40,11 @@ fi
 echo "=> Configuring InfluxDB"
 sed -i -e "s/<--ADDR->/${ADDR}/g" -e "s/<--PORT-->/${PORT}/g" -e "s/<--DB_NAME-->/${DB_NAME}/g" -e "s/<--USER-->/${USER}/g" -e "s/<--PASS-->/${PASS}/g" /app/config.js
 touch /.influx_db_configured
-echo "=> InfluxDB has been configured."
+echo "=> InfluxDB has been configured as follows:"
+echo "   InfluxDB ADDRESS:  ${ADDR}"
+echo "   InfluxDB PORT:     ${PORT}"
+echo "   InfluxDB DB NAME:  ${DB_NAME}"
+echo "   InfluxDB USERNAME: ${USER}"
+echo "   InfluxDB PASSWORD: ${PASS}"
+echo "   ** Please check your environment variables if you find something is misconfigured. **"
 echo "=> Done!"

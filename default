@@ -10,4 +10,6 @@ server {
     location / {
         try_files $uri $uri/ =404;
     }
+    auth_basic "Restricted";
+    auth_basic_user_file /app/.htpasswd;
 }
