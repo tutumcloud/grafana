@@ -1,7 +1,7 @@
 define(['settings'],
 function (Settings) {
   return new Settings({
-    elasticsearch: "http://"+window.location.hostname+":9200",
+    //elasticsearch: "http://"+window.location.hostname+":9200",
     datasources: {
       influx: {
         default: true,

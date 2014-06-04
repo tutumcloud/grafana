@@ -18,6 +18,7 @@ ENV INFLUXDB_PASS root
 ADD run.sh /run.sh
 ADD set_influx_db.sh /set_influx_db.sh
 ADD set_basic_auth.sh /set_basic_auth.sh
+ADD set_elasticsearch.sh /set_elasticsearch.sh
 RUN chmod +x /*.sh
 
 CMD ["/run.sh"]

@@ -10,5 +10,9 @@ if [ ! -f /.influx_db_configured ]; then
     /set_influx_db.sh
 fi
 
+if [ ! -f /.elasticsearch_configured ]; then
+    /set_elasticsearch.sh
+fi
+
 echo "=> Starting and running Nginx..."
 /usr/sbin/nginx
