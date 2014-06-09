@@ -13,7 +13,7 @@ if [ -n "${ELASTICSEARCH_1_PORT_9200_TCP_ADDR}" -a -n "${ELASTICSEARCH_1_PORT_92
     sed -i "s#.*elasticsearch.*#elasticsearch:\"http://${ELASTICSEARCH_1_PORT_9200_TCP_ADDR}:${ELASTICSEARCH_1_PORT_9200_TCP_PORT}\",#g"  /app/config.js
     echo "=> Done!"
 else
-    echo "=> Either address or port of Elasitsearch is not set or empty."
+    echo "=> Either address or port of Elasticsearch is not set or empty."
     echo "=> Skip setting Elasticsearch."
 fi
 
