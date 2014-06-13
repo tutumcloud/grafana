@@ -12,16 +12,16 @@ DB_NAME=''
 USER=''
 PASS=''
 
-if [ -n "${INFLUXDB_1_PORT_8086_TCP_ADDR}" ]; then
-    ADDR="${INFLUXDB_1_PORT_8086_TCP_ADDR}"
+if [ -n "${INFLUXDB_PORT_8086_TCP_ADDR}" ]; then
+    ADDR="${INFLUXDB_PORT_8086_TCP_ADDR}"
 else
     echo "No address of InfluxDB is specified"
     exit 1
 fi
 
 
-if [ -n "${INFLUXDB_1_PORT_8086_TCP_PORT}" ]; then
-    PORT="${INFLUXDB_1_PORT_8086_TCP_PORT}"
+if [ -n "${INFLUXDB_PORT_8086_TCP_PORT}" ]; then
+    PORT="${INFLUXDB_PORT_8086_TCP_PORT}"
 else
     echo "No port number of InfluxDB is specified"
     exit 1
