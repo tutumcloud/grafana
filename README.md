@@ -8,7 +8,7 @@ Usage
 -----
 To create the image `tutum/grafana`, execute the following command on the tutum-docker-grafana folder:
 
-    docker build -t tutum/grafana
+    docker build -t tutum/grafana .
 
 To run the image and bind the port:
 
@@ -75,6 +75,8 @@ If you want you use Elasticsearch to save and load you dashboards, you can provi
 ```
 ELASTICSEARCH_HOST=**LinkMe**       Address of your Elasticsearch (do not use prefix such as http://)
 ELASTICSEARCH_PORT=**LinkMe**       Port number of your Elasticsearch (9200 or the port mapping 9200)
+ELASTICSEARCH_USER=**None**         Username for elasticsearch if it has http basic auth enabled(Leave it to **None** on no http basic auth)
+ELASTICSEARCH_PASS=**None**         Password for elasticsearch if it has http basic auth enabled(Leave it to **None** on no http basic auth)
 ```
 
 Here is an example:

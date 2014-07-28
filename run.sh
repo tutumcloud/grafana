@@ -14,18 +14,29 @@ ELASTICSEARCH_HOST=${ELASTICSEARCH_1_PORT_9200_TCP_ADDR:-${ELASTICSEARCH_HOST}}
 ELASTICSEARCH_PORT=${ELASTICSEARCH_PORT_9200_TCP_PORT:-${ELASTICSEARCH_PORT}}
 ELASTICSEARCH_PORT=${ELASTICSEARCH_1_PORT_9200_TCP_PORT:-${ELASTICSEARCH_PORT}}
 
-if [ "${ELASTICSEARCH_HOST}" = "**LinkMe**" ]; then
+if [ "${ELASTICSEARCH_HOST}" == "**LinkMe**" ]; then
     unset ELASTICSEARCH_HOST
 fi
 
-if [ "${ELASTICSEARCH_PORT}" = "**LinkMe**" ]; then
+if [ "${ELASTICSEARCH_PORT}" == "**LinkMe**" ]; then
     unset ELASTICSEARCH_PORT
 fi
 
-if [ "${HTTP_PASS}" = "**Random**" ]; then
+echo "${ELASTICSEARCH_USER}"
+if [ "${ELASTICSEARCH_USER}" == "**None**" ]; then
+    unset ELASTICSEARCH_USER
+fi
+echo "${ELASTICSEARCH_USER}"
+
+echo "${ELASTICSEARCH_PASS}"
+if [ "${ELASTICSEARCH_PASS}" == "**None**" ]; then
+    unset ELASTICSEARCH_PASS
+fi
+echo "${ELASTICSEARCH_PASS}"
+
+if [ "${HTTP_PASS}" == "**Random**" ]; then
     unset HTTP_PASS
 fi
-
 
 if [ ! -f /.basic_auth_configured ]; then
     /set_basic_auth.sh

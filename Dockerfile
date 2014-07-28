@@ -23,6 +23,9 @@ ENV INFLUXDB_PASS root
 
 ENV ELASTICSEARCH_HOST **LinkMe**
 ENV ELASTICSEARCH_PORT **LinkMe**
+ENV ELASTICSEARCH_USER **None**
+ENV ELASTICSEARCH_PASS **None**
+
 
 ADD run.sh /run.sh
 ADD set_influx_db.sh /set_influx_db.sh
