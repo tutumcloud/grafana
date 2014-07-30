@@ -7,9 +7,13 @@ server {
 
     server_name localhost;
 
+    location /ping {
+        return 200;
+    }
+
     location / {
+        auth_basic "Restricted";
+        auth_basic_user_file /app/.htpasswd;
         try_files $uri $uri/ =404;
     }
-    auth_basic "Restricted";
-    auth_basic_user_file /app/.htpasswd;
 }

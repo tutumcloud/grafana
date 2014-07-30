@@ -6,7 +6,7 @@ function (Settings) {
       influx: {
         default: true,
         type: 'influxdb',
-        url: "http://<--ADDR->:<--PORT-->/db/<--DB_NAME-->",
+        url: "<--PROTO-->://<--ADDR-->:<--PORT-->/db/<--DB_NAME-->",
         username: "<--USER-->",
         password: "<--PASS-->",
       }

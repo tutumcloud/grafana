@@ -19,8 +19,11 @@ if [ "${INFLUXDB_PORT}" = "**ChangeMe**" ]; then
 fi
 
 echo "=> Configuring InfluxDB"
-sed -i -e "s/<--ADDR->/${INFLUXDB_HOST}/g" -e "s/<--PORT-->/${INFLUXDB_PORT}/g"  \
-    -e "s/<--DB_NAME-->/${INFLUXDB_NAME}/g" -e "s/<--USER-->/${INFLUXDB_USER}/g" \
+sed -i -e "s/<--PROTO-->/${INFLUXDB_PROTO}/g" \
+    -e "s/<--ADDR-->/${INFLUXDB_HOST}/g" \
+    -e "s/<--PORT-->/${INFLUXDB_PORT}/g" \
+    -e "s/<--DB_NAME-->/${INFLUXDB_NAME}/g" \
+    -e "s/<--USER-->/${INFLUXDB_USER}/g" \
     -e "s/<--PASS-->/${INFLUXDB_PASS}/g" /app/config.js
 touch /.influx_db_configured
 echo "=> InfluxDB has been configured as follows:"

@@ -10,11 +10,11 @@ fi
 if [ -n "${ELASTICSEARCH_HOST}" ] && [ -n "${ELASTICSEARCH_PORT}" ]; then
     echo "=> Found Elasticsearch settings."
     if [ -n "${ELASTICSEARCH_USER}" ] && [ -n "${ELASTICSEARCH_PASS}" ]; then
-        echo "=> Set Elasticsearch url to \"http://${ELASTICSEARCH_USER}:${ELASTICSEARCH_PASS}@${ELASTICSEARCH_HOST}:${ELASTICSEARCH_PORT}\"."
-        sed -i "s#.*elasticsearch.*#elasticsearch:\"http://${ELASTICSEARCH_USER}:${ELASTICSEARCH_PASS}@${ELASTICSEARCH_HOST}:${ELASTICSEARCH_PORT}\",#g"  /app/config.js
+        echo "=> Set Elasticsearch url to \"${ELASTICSEARCH_PROTO}://${ELASTICSEARCH_USER}:${ELASTICSEARCH_PASS}@${ELASTICSEARCH_HOST}:${ELASTICSEARCH_PORT}\"."
+        sed -i "s#.*elasticsearch.*#elasticsearch:\"${ELASTICSEARCH_PROTO}://${ELASTICSEARCH_USER}:${ELASTICSEARCH_PASS}@${ELASTICSEARCH_HOST}:${ELASTICSEARCH_PORT}\",#g"  /app/config.js
     else
-        echo "=> Set Elasticsearch url to \"http://${ELASTICSEARCH_HOST}:${ELASTICSEARCH_PORT}\"."
-        sed -i "s#.*elasticsearch.*#elasticsearch:\"http://${ELASTICSEARCH_HOST}:${ELASTICSEARCH_PORT}\",#g"  /app/config.js
+        echo "=> Set Elasticsearch url to \"${ELASTICSEARCH_PROTO}://${ELASTICSEARCH_HOST}:${ELASTICSEARCH_PORT}\"."
+        sed -i "s#.*elasticsearch.*#elasticsearch:\"${ELASTICSEARCH_PROTO}://${ELASTICSEARCH_HOST}:${ELASTICSEARCH_PORT}\",#g"  /app/config.js
     fi
     echo "=> Done!"
 else

@@ -54,7 +54,8 @@ Configure the connection to InfluxDB
 
 `tutum/grafana` needs to know the information of your InfluxDB for configuration. Please provide the following environment variables when running your Grafana container:
 ```
-INFLUXDB_HOST=**ChangeMe**          Address of your InfluxDB (do not use prefix such as http://)
+INFLUXDB_PROTO=http                 Protocol of your InfluxDB
+INFLUXDB_HOST=**ChangeMe**          Host of your InfluxDB (without protocol)
 INFLUXDB_PORT=8086                  Port number of your InfluxDB
 INFLUXDB_NAME=**ChangeMe**          Database name of your InfluxDB
 INFLUXDB_USER=root                  Username of your InfluxDB
@@ -71,7 +72,8 @@ Configure Elasticsearch to save and load dashboards
 If you want you use Elasticsearch to save and load you dashboards, you can provide the following environment variables for configuration:
 
 ```
-ELASTICSEARCH_HOST=**None**         Address of your Elasticsearch (do not use prefix such as http://)
+ELASTICSEARCH_PROTO=http            Protocol of your Elasticsearch
+ELASTICSEARCH_HOST=**None**         Host of your Elasticsearch (without protocol)
 ELASTICSEARCH_PORT=9200             Port number of your Elasticsearch
 ELASTICSEARCH_USER=**None**         Username for elasticsearch if it has HTTP basic auth enabled (leave it to **None** if no HTTP basic auth is needed)
 ELASTICSEARCH_PASS=**None**         Password for elasticsearch if it has HTTP basic auth enabled (leave it to **None** if no HTTP basic auth is needed)
