@@ -54,8 +54,8 @@ Configure the connection to InfluxDB
 
 `tutum/grafana` needs to know the information of your InfluxDB for configuration. Please provide the following environment variables when running your Grafana container:
 ```
-INFLUXDB_HOST=**LinkMe**            Address of your InfluxDB (do not use prefix such as http://)
-INFLUXDB_PORT=**LinkMe**            Port number of your InfluxDB (8086 or the port mapping 8086)
+INFLUXDB_HOST=**ChangeMe**          Address of your InfluxDB (do not use prefix such as http://)
+INFLUXDB_PORT=8086                  Port number of your InfluxDB
 INFLUXDB_NAME=**ChangeMe**          Database name of your InfluxDB
 INFLUXDB_USER=root                  Username of your InfluxDB
 INFLUXDB_PASS=root                  Password of your InfluxDB
@@ -64,18 +64,6 @@ INFLUXDB_PASS=root                  Password of your InfluxDB
 Here is an example:
 
     docker run -d -p 80:80 -e INFLUXDB_HOST=influxdb-1-tifayuki.delta.tutum.io -e INFLUXDB_PORT=8086 -e INFLUXDB_NAME=testdb -e INFLUXDB_USER=root -e INFLUXDB_PASS=root tutum/grafana
-    
-
-Link to you InfluxDB container
-------------------------------
-
-You can also link `tutum/grafana` to your InfluxDB container directly by giving your InfluxDB container an alias of `INFLUXDB`. In this case, you don't need to specify `INFLUXDB_HOST` and `INFLUXDB_PORT`.
-
-For more information about InfluxDB containers, please see `tutum/influxdb` and https://github.com/tutumcloud/tutum-docker-influxdb
-
-Here is an example:
-
-    docker run -d -p 80:80 --link yourinflux:INFLUXDB -e INFLUXDB_NAME=testdb -e INFLUXDB_USER=root -e INFLUXDB_PASS=root tutum/grafana
 
 
 Configure Elasticsearch to save and load dashboards
@@ -84,14 +72,14 @@ If you want you use Elasticsearch to save and load you dashboards, you can provi
 
 ```
 ELASTICSEARCH_HOST=**None**         Address of your Elasticsearch (do not use prefix such as http://)
-ELASTICSEARCH_PORT=**None**         Port number of your Elasticsearch (9200 or the port mapping 9200)
+ELASTICSEARCH_PORT=9200             Port number of your Elasticsearch
 ELASTICSEARCH_USER=**None**         Username for elasticsearch if it has HTTP basic auth enabled (leave it to **None** if no HTTP basic auth is needed)
 ELASTICSEARCH_PASS=**None**         Password for elasticsearch if it has HTTP basic auth enabled (leave it to **None** if no HTTP basic auth is needed)
 ```
 
 Here is an example:
 
-    docker run -d -p 80:80 --link yourinflux:INFLUXDB -e INFLUXDB_NAME=test -e INFLUXDB_USER=root -e INFLUXDB_PASS=root -e ELASTICSEARCH_HOST=elasticsearch-1-tifayuki.beta.tutum.io -e ELASTICSEARCH_PORT=9200 tutum/grafana
+    docker run -d -p 80:80 -e INFLUXDB_HOST=influxdb-1-tifayuki.delta.tutum.io -e INFLUXDB_PORT=8086 -e INFLUXDB_NAME=testdb -e INFLUXDB_USER=root -e INFLUXDB_PASS=root -e ELASTICSEARCH_HOST=elasticsearch-1-tifayuki.beta.tutum.io -e ELASTICSEARCH_PORT=9200 -e ELASTICSEARCH_USER=admin -e ELASTICSEARCH_PASS=admin tutum/grafana
 
 
 **by http://www.tutum.co**

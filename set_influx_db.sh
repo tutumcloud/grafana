@@ -6,13 +6,13 @@ if [ -f /.influx_db_configured ]; then
     exit 0
 fi
 
-if [ "${INFLUXDB_HOST}" = "**LinkMe**" ]; then
+if [ "${INFLUXDB_HOST}" = "**ChangeMe**" ]; then
     echo "=> No address of InfluxDB is specified!"
     echo "=> Program terminated!"
     exit 1
 fi
 
-if [ "${INFLUXDB_PORT}" = "**LinkMe**" ]; then
+if [ "${INFLUXDB_PORT}" = "**ChangeMe**" ]; then
     echo "=> No PORT of InfluxDB is specified!"
     echo "=> Program terminated!"
     exit 1
