@@ -20,6 +20,7 @@ fi
 
 echo "=> Configuring InfluxDB"
 sed -i -e "s/<--PROTO-->/${INFLUXDB_PROTO}/g" \
+    -e "s/<--GRAFANADB-->/${INFLUXDB_IS_GRAFANADB}/g" \
     -e "s/<--ADDR-->/${INFLUXDB_HOST}/g" \
     -e "s/<--PORT-->/${INFLUXDB_PORT}/g" \
     -e "s/<--DB_NAME-->/${INFLUXDB_NAME}/g" \
