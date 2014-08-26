@@ -83,7 +83,7 @@ Here is an example:
 
     docker run -d -p 80:80 -e INFLUXDB_HOST=influxdb-1-tifayuki.delta.tutum.io -e INFLUXDB_PORT=8086 -e INFLUXDB_NAME=testdb -e INFLUXDB_USER=root -e INFLUXDB_PASS=root -e ELASTICSEARCH_HOST=elasticsearch-1-tifayuki.beta.tutum.io -e ELASTICSEARCH_PORT=9200 -e ELASTICSEARCH_USER=admin -e ELASTICSEARCH_PASS=admin tutum/grafana
 
-Configure Elasticsearch to save and load dashboards
+Configure InfluxDB to save and load dashboards
 ---------------------------------------------------
 If you want to use InfluxDB for saving dashboards, you need to pass an extra
 environment variable: `INFLUXDB_IS_GRAFANADB` which defaults to false.
