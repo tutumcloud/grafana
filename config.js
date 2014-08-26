@@ -5,6 +5,7 @@ function (Settings) {
     datasources: {
       influx: {
         default: true,
+        grafanaDB: true,
         type: 'influxdb',
         url: "<--PROTO-->://<--ADDR-->:<--PORT-->/db/<--DB_NAME-->",
         username: "<--USER-->",
