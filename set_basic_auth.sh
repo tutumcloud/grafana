@@ -10,7 +10,7 @@ fi
 PASS=${HTTP_PASS:-$(pwgen -s 12 1)}
 _word=$([ ${HTTP_PASS} ] && echo "preset" || echo "random")
 
-echo "=> Creating basic auth for \" ${HTTP_USER}\" user with ${_word} password"
+echo "=> Creating basic auth for \"${HTTP_USER}\" user with ${_word} password"
 echo ${PASS} | htpasswd -i -c /app/.htpasswd  ${HTTP_USER}
 echo "=> Done!"
 touch /.basic_auth_configured
