@@ -1,7 +1,7 @@
 FROM tutum/nginx
 MAINTAINER Feng Honglin <hfeng@tutum.co>
 
-ENV GRAFANA_VERSION 1.8.1
+ENV GRAFANA_VERSION 1.9.0
 
 RUN apt-get update && \
     apt-get install -y wget pwgen apache2-utils && \
