@@ -1,6 +1,8 @@
 tutum-docker-grafana
 ====================
 
+[![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/)
+
 Grafana dashboard for Influx DB
 
 
@@ -13,7 +15,7 @@ To create the image `tutum/grafana`, execute the following command on the tutum-
 To run the image and bind the port:
 
     docker run -d -p 80:80 tutum/grafana
-    
+
 The first time that you run your container, a new user `admin` will be created for HTTP basic auth with a random password. To get the password, check the logs of the container by running:
 
     docker logs <CONTAINER_ID>
@@ -22,7 +24,7 @@ You will see an output like the following:
 ```
  ========================================================================
  You can now connect to Grafana with the following credential:
- 
+
      admin:ilNfrVn68r1N
 
  ========================================================================
