@@ -1,11 +1,11 @@
 FROM tutum/nginx
 MAINTAINER Feng Honglin <hfeng@tutum.co>
 
-ENV GRAFANA_VERSION 1.9.1
+ENV GRAFANA_VERSION 2.1.3
 
 RUN apt-get update && \
     apt-get install -y wget pwgen apache2-utils && \
-    wget http://grafanarel.s3.amazonaws.com/grafana-${GRAFANA_VERSION}.tar.gz -O grafana.tar.gz && \
+    wget https://grafanarel.s3.amazonaws.com/builds/grafana-${GRAFANA_VERSION}.linux-x64.tar.gz -O grafana.tar.gz && \
     tar zxf grafana.tar.gz && \
     rm grafana.tar.gz && \
     rm -rf app && \
