@@ -1,6 +1,8 @@
 tutum-docker-grafana
 ====================
 
+**This image will be deprecated soon. Please use the image provided by the software provider: ** https://hub.docker.com/r/grafana/grafana/
+
 [![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/)
 
 Grafana dashboard for Influx DB
